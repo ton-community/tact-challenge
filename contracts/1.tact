@@ -1,10 +1,10 @@
 import "@stdlib/deploy";
 
 /*
-  TASK 1 - Counter contract 
+  TASK 1 - Counter 
   Implement counter contract that will have 2 opcodes ('Add' / 'Subtract'),
-  which add or subtract the sent number (int32) with the number that stored in the state.
-  Also, its needed to implement one getter with name "counter" to get the number from the store.
+  which add or subtract the received number (int32) with the number that is stored in the state (and store the result back in the state).
+  You also need to implement one getter with name "counter" to get the current number from the state.
 */
 
 message Add {
@@ -33,4 +33,3 @@ contract Task1 with Deployable {
     get fun counter(): Int {
     }
 }
-
