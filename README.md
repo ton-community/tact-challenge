@@ -60,7 +60,6 @@ Winners of the contest will receive prizes denominated in Toncoin, the native cr
 
 Each task can bring you a max of 6 points. You get 5 points for solving a task. You get an extra point if you solve it without using any gas.
 
-#### Important:
 **Minimum amount** of points to be eligible for the prize is **6 points**.
 
 Prizes:
@@ -110,6 +109,6 @@ We recommend using [tact-template](https://github.com/tact-lang/tact-template) f
 
 Stay in the loop and engage with other developers:
 
-- 🇬🇧 [English Chat](https://t.me/tondev_eng)
-- 🇨🇳 [Chinese Chat](https://t.me/tondev_zh)
-- 🇷🇺 [Russian Chat](https://t.me/tondev)
+- [TON Dev Chat (EN)](https://t.me/tondev_eng)
+- [TON Dev Chat (中文)](https://t.me/tondev_zh)
+- [TON Dev Chat (РУ)](https://t.me/tondev)
