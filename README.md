@@ -1,5 +1,5 @@
 # 🏆 Welcome to Tact Challenge
-### by TON Foundation 1
+### by TON Foundation
 
 ## 📝 Tasks
 
