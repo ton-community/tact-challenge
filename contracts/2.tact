@@ -2,13 +2,13 @@ import "@stdlib/deploy";
 
 /*
   TASK 2 - Proxy contract 
-  Create a contract that forwards all messages sent and tokens received 
+  Create a contract that forwards all messages sent and toncoins received 
   to the admin contract (the address will be set in init_store).
-  Transaction from proxy contract to admin contrac should contain
-    - Address, of ueser who sended trx (should be stored in the body cell).
-    - Original message that proxy smart contract recived from user (should be stored in the first ref in the outcoming body).
-  Also, if admin contract will bounce message (Bounced / opcode 0x44), then you need to send all ton`s back to user.
-  User address will be given in bounced msg body as "sender".
+  Transaction from proxy contract to admin contract should contain
+    - Address of the ueser who sent the transaction (should be stored in the body cell).
+    - Original message that proxy smart contract received from the user (should be stored in the first ref in the outcoming body).
+  Also, if admin contract rejects the message (Bounced / opcode 0x44), then you need to send all TONs back to the user.
+  The user address will be given in bounced message body as "sender".
 */
 
 message(0x44) Bounced {
