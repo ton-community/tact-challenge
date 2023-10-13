@@ -1,0 +1,60 @@
+name: TON Tact Challenge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Filter and Archive code
+        run: |
+          mkdir -p contracts_filtered
+          find contracts -type f \( -name '*.tact' \) -exec cp {} contracts_filtered/ \;
+          cd contracts_filtered
+          zip -r ../code.zip .
+
+      - name: Send archive to endpoint and wait for response
+        env:
+          ENDPOINT_URL: "https://submissions.tonsmartchallenge.org/tsc-5"  # Replace with your actual endpoint URL
+        run: |
+          response=$(curl -s -w "%{http_code}" --max-time 600 -X POST -H "Content-Type: multipart/form-data" -F "file=@code.zip" -F "token=${{secrets.USER_TOKEN}}" -F "github=${{github.repository_owner}}" $ENDPOINT_URL -o response.json)
+          status_code=$response
+
+          if [ $status_code -eq 200 ]; then
+            echo "Package delivered successfully."
+            echo "::set-output name=success::true"  # Set success to true
+          else
+            echo "Failed to submit TON Tact Challenge solution. Status code: $status_code"
+            
+            error_message=$(cat response.json | jq -r '.error')
+            echo "Error message: $error_message"
+            echo "::set-output name=success::false"  # Set success to false
+            exit 1  # Exit with a non-zero code to mark the action as failed
+          fi
+          sleep 10  # Adjust the wait time as needed
+
+      - name: Set action status
+        id: status
+        run: |
+          minChallengePassed=$(cat response.json | jq -r '.minChallangePassed')
+          report=$(cat response.json | jq -r '.md')
+
+          echo "$report" > $GITHUB_STEP_SUMMARY
+          if [ "$minChallengePassed" == "true" ]; then
+            echo "success=true" >> $GITHUB_ENV  # Set success to true using Environment Files
+            echo "Detailed summary report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            echo "success=false" >> $GITHUB_ENV  # Set success to false using Environment Files
+            echo "Submission failed"  # Display an error message for failed deployment
+            echo "Detailed summary report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            exit 1  # Exit with a non-zero code to mark the action as failed
+          fi
+          
+          
