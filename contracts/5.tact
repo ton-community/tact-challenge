@@ -32,7 +32,7 @@ import "@stdlib/deploy";
   * profit
    - returns how much collected fees is available to withdraw for the admin (all fees minus 0.1 TON)
   * nfts
-   - returns dict of held NFTs with NFT indexes (= sequential numbers from 0, 1, 2 ... and up to 'totalNftsHeld-1') as keys and NFT address as values 
+   - returns dict of held NFTs with NFT indexes (sequential numbers from 0, 1, 2 ... and up to 'totalNftsHeld-1') as keys and NFT address as values 
      the order of NFTs in this dictionary doesn't matter
 */
 
