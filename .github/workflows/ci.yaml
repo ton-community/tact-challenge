@@ -29,13 +29,13 @@ jobs:
 
           if [ $status_code -eq 200 ]; then
             echo "Package delivered successfully."
-            echo "::set-output name=success::true"  # Set success to true
+            echo "success=true" >> $GITHUB_OUTPUT  # Set success to true
           else
             echo "Failed to submit TON Tact Challenge solution. Status code: $status_code"
             
             error_message=$(cat response.json | jq -r '.error')
             echo "Error message: $error_message"
-            echo "::set-output name=success::false"  # Set success to false
+            echo "success=false" >> $GITHUB_OUTPUT  # Set success to false
             exit 1  # Exit with a non-zero code to mark the action as failed
           fi
           sleep 10  # Adjust the wait time as needed
