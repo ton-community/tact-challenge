@@ -37,7 +37,7 @@ import "@stdlib/deploy";
      the order of NFTs in this dictionary doesn't matter
 */
 
-message AdminWithdrawalFees {
+message AdminWithdrawalProfit {
   queryId: Int as uint64;
 }
 
@@ -45,7 +45,7 @@ message AdminWithdrawalAllNFTs {
   queryId: Int as uint64;
 }
 
-message AdminFetchFees {
+message AdminFetchProfit {
   queryId: Int as uint64;
 }
 
@@ -76,7 +76,7 @@ contract Task5 with Deployable {
   receive(msg: OwnershipAssigned) {
   }
 
-  receive(msg: AdminWithdrawalFees) {
+  receive(msg: AdminWithdrawalProfit) {
   }
 
   receive(msg: AdminWithdrawalAllNFTs) {
