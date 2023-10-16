@@ -51,7 +51,7 @@ We ask participants not to change the signature (number, order, and types of arg
 **Best of luck with your submissions!**
 
 ## ‼️ Important rules:
-- It's forbidden to use any FunC/Fift code inside of submitted Tact solutions. Participants who will have FunC/Fift code in their submissions will be disqualified.
+- It's forbidden to use any FunC/Fift code inside of submitted Tact solutions. Participants who will have FunC/Fift code in their submissions will be disqualified. This rule applies to Tact bindings as they're using a lower level of abstraction thus compromising the nature of Tact Challenge.
 - Please don't share your solution's code with anybody. If someone's submission will be suspected of using your code - both participants will be disqualified. Repeated case will cause lifetime ban from TON Smart Challenges.
 
 ## 🏆 Scoring and Prizes
