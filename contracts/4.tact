@@ -13,7 +13,7 @@ import "@stdlib/deploy";
    - Request withdrawal of the locked nft
    - If sender is not the owner (that came from OwnershipAssigned as prevOwner address) then throw "Invalid sender" 
    - If time has not passed then send message back to the sender with the comment "NFT is still locked" according to the TON's "message with text comment" standard 
-   - Otherwise (all good) send the locked nft back to the owner with all the remaining TON balance
+   - Otherwise (all good) send the locked nft back to the owner with all the remainings of the incoming TONs
    Note that the order of checks is important
    (in case: "sender is not the owner" and "time has not passed" at the same time, "Invalid sender" error takes priority)
 
